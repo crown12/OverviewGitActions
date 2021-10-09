@@ -44,12 +44,14 @@ jobs:
       run: dotnet build ${{ env.solution_PATH }} --configuration Debug
       working-directory: .\EmptyProject
       
-  #  - name: Restore dependencies
-   #   run: dotnet restore ${{ env.solution_PATH }}
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.solution_PATH }}
+      working-directory: .\EmptyProject
 
-    # Execute all unit tests in the solution
-    #- name: Execute unit tests
-     # run: dotnet test ${{ env.solution_PATH }} --verbosity normal --filter Tests
+    #Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test ${{ env.solution_PATH }} --verbosity normal --filter Tests
+      working-directory: .\EmptyProject
 
    
     # Create the app package by building and packaging the Windows Application Packaging project
