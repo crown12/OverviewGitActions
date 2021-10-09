@@ -1,0 +1,9 @@
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\bin\Debug\netcoreapp3.1\FrequentLibF.deps.json
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\bin\Debug\netcoreapp3.1\FrequentLibF.dll
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\bin\Debug\netcoreapp3.1\FrequentLibF.pdb
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\obj\Debug\netcoreapp3.1\FrequentLibF.csproj.AssemblyReference.cache
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\obj\Debug\netcoreapp3.1\FrequentLibF.AssemblyInfoInputs.cache
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\obj\Debug\netcoreapp3.1\FrequentLibF.AssemblyInfo.cs
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\obj\Debug\netcoreapp3.1\FrequentLibF.csproj.CoreCompileInputs.cache
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\obj\Debug\netcoreapp3.1\FrequentLibF.dll
+F:\users\OverviewGitActions\EmptyProject\FrequentLibF\obj\Debug\netcoreapp3.1\FrequentLibF.pdb

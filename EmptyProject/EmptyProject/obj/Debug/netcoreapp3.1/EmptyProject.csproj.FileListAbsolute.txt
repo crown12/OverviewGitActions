@@ -1,0 +1,13 @@
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\bin\Debug\netcoreapp3.1\EmptyProject.exe
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\bin\Debug\netcoreapp3.1\EmptyProject.deps.json
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\bin\Debug\netcoreapp3.1\EmptyProject.runtimeconfig.json
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\bin\Debug\netcoreapp3.1\EmptyProject.runtimeconfig.dev.json
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\bin\Debug\netcoreapp3.1\EmptyProject.dll
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\bin\Debug\netcoreapp3.1\EmptyProject.pdb
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\obj\Debug\netcoreapp3.1\EmptyProject.csproj.AssemblyReference.cache
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\obj\Debug\netcoreapp3.1\EmptyProject.AssemblyInfoInputs.cache
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\obj\Debug\netcoreapp3.1\EmptyProject.AssemblyInfo.cs
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\obj\Debug\netcoreapp3.1\EmptyProject.csproj.CoreCompileInputs.cache
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\obj\Debug\netcoreapp3.1\EmptyProject.dll
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\obj\Debug\netcoreapp3.1\EmptyProject.pdb
+F:\users\OverviewGitActions\EmptyProject\EmptyProject\obj\Debug\netcoreapp3.1\EmptyProject.genruntimeconfig.cache

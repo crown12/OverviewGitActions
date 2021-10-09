@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmptyProject", "EmptyProject\EmptyProject.csproj", "{2BA1B830-2482-4A3A-9F6C-1DB332883132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrequentLibF", "FrequentLibF\FrequentLibF.csproj", "{75ABC487-1D16-4442-BBB5-3C2FC55E3B2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrequentLibF", "FrequentLibF\FrequentLibF.csproj", "{75ABC487-1D16-4442-BBB5-3C2FC55E3B2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrequentLib.Tests", "FrequentLib.Tests\FrequentLib.Tests.csproj", "{10D29EE9-AF26-4EFD-8BFA-0D81FE2F50C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{75ABC487-1D16-4442-BBB5-3C2FC55E3B2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75ABC487-1D16-4442-BBB5-3C2FC55E3B2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75ABC487-1D16-4442-BBB5-3C2FC55E3B2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10D29EE9-AF26-4EFD-8BFA-0D81FE2F50C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D29EE9-AF26-4EFD-8BFA-0D81FE2F50C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10D29EE9-AF26-4EFD-8BFA-0D81FE2F50C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10D29EE9-AF26-4EFD-8BFA-0D81FE2F50C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
