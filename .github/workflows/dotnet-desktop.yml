@@ -1,3 +1,4 @@
+
 name: FthCI
 
 on:
@@ -9,9 +10,7 @@ on:
     - feature/**
 
 jobs:
-
   build:
-
     strategy:
       matrix:
         configuration: [Debug, Release]
@@ -19,9 +18,9 @@ jobs:
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on   
 
-    env:
-      Solution_Name: 'EmptyProject.sln'                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: FrequentLib.Tests                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+    env:      
+      Solution_PATH: EmptyProject.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      #Test_Project_Path: FrequentLib.Tests                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
 
     steps:
     - name: Checkout
@@ -33,22 +32,27 @@ jobs:
     - name: Setup .Net
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.x
+        dotnet-version: 3.1
   
   #  - name: Add github nuget registry
    #   run: dotnet nuget add source --username fathi.chabane@gmail.com --password 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 --name github-fth "https://nuget.pkg.github.com/crown12/index.json"
-
+ 
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
+   # - name: Setup MSBuild.exe
+  #    uses: microsoft/setup-msbuild@v1.0.2
+    - name: Build with dotnet
+      run: dotnet build ${{ env.solution_PATH }} --configuration Debug
+      working-directory: .\EmptyProject
+      
+    - name: Restore dependencies
+      run: dotnet restore ${{ env.solution_PATH }}
+      working-directory: .\EmptyProject
 
-    # Execute all unit tests in the solution
-  #  - name: Execute unit tests
-   #   run: dotnet test ${{ env.solution_PATH }} --verbosity normal --filter Tests
+    #Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test ${{ env.solution_PATH }} --verbosity normal --filter Tests
+      working-directory: .\EmptyProject
 
    
     # Create the app package by building and packaging the Windows Application Packaging project
-    
-
-
