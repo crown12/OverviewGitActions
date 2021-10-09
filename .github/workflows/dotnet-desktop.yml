@@ -31,7 +31,7 @@ jobs:
     - name: Setup .Net
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.x
+        dotnet-version: 3.1
   
   #  - name: Add github nuget registry
    #   run: dotnet nuget add source --username fathi.chabane@gmail.com --password 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 --name github-fth "https://nuget.pkg.github.com/crown12/index.json"
