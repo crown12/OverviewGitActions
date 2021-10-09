@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>FrequentLibF</id>
+    <version>0.0.2</version>
+    <authors>FrequentLibF</authors>
+    <description>Just a test projects</description>
+    <repository url="https://github.com/crown12/OverviewGitActions" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="F:\users\OverviewGitActions\EmptyProject\FrequentLibF\bin\Debug\netcoreapp3.1\FrequentLibF.dll" target="lib\netcoreapp3.1\FrequentLibF.dll" />
+  </files>
+</package>
