@@ -9,9 +9,7 @@ on:
     - feature/**
 
 jobs:
-
   build:
-
     strategy:
       matrix:
         configuration: [Debug, Release]
@@ -40,15 +38,17 @@ jobs:
 
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
+   # - name: Setup MSBuild.exe
+  #    uses: microsoft/setup-msbuild@v1.0.2
+    - name: Build with dotnet
+      run: dotnet build --configuration Debug
       
-    - name: Restore dependencies
-      run: dotnet restore ${{ env.solution_PATH }}
+  #  - name: Restore dependencies
+   #   run: dotnet restore ${{ env.solution_PATH }}
 
     # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test ${{ env.solution_PATH }} --verbosity normal --filter Tests
+    #- name: Execute unit tests
+     # run: dotnet test ${{ env.solution_PATH }} --verbosity normal --filter Tests
 
    
     # Create the app package by building and packaging the Windows Application Packaging project
