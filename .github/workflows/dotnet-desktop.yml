@@ -35,8 +35,8 @@ jobs:
       with:
         dotnet-version: 3.0.x
   
-    - name: Add github nuget registry
-      run: dotnet nuget add source --username fathi.chabane@gmail.com --password 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 --name github-fth "https://nuget.pkg.github.com/crown12/index.json"
+  #  - name: Add github nuget registry
+   #   run: dotnet nuget add source --username fathi.chabane@gmail.com --password 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 --name github-fth "https://nuget.pkg.github.com/crown12/index.json"
 
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
