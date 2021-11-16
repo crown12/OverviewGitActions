@@ -29,13 +29,16 @@ jobs:
       
     - name: Restore dependencies
       run: dotnet restore --locked-mode
+      working-directory: ./EmptyProject
       
     - name: Build
       run: dotnet build --configuration ${{ env.config }} --no-restore
+      working-directory: ./EmptyProject
       
     - name: Create the package
       # if: ${{ github.ref == 'refs/heads/develop' }}
       run: dotnet pack --configuration ${{ env.config }} --no-build --no-restore
+      working-directory: ./EmptyProject
  
     - name: Publish the package to GPR
       # if: ${{ github.ref == 'refs/heads/develop' }}
