@@ -3,13 +3,10 @@ name: CI
 on:
   push:
     branches:
-    - main
-    - develop
-    - release/**
+    - main   
   pull_request:
     branches:
-    - main
-    - develop        
+    - main    
     - feature/**    
 
 jobs:
@@ -18,6 +15,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     env:
       config: 'Release'
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -26,12 +24,25 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1
-    
-  
+        
+    - name: Add github nuget registry
+      run: dotnet nuget add source --username fathi.chabane@gmail.com --password Info**1987 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/crown12/index.json"      
+      
+    - name: Restore dependencies
+      run: dotnet restore --locked-mode
+      working-directory: ./EmptyProject
+      
+    - name: Build
+      run: dotnet build --configuration ${{ env.config }} --no-restore
+      working-directory: ./EmptyProject
+      
     - name: Create the package
-      if: ${{ github.ref == 'refs/heads/develop' }}
+      # if: ${{ github.ref == 'refs/heads/develop' }}
       run: dotnet pack --configuration ${{ env.config }} --no-build --no-restore
+      working-directory: ./EmptyProject
  
     - name: Publish the package to GPR
-      if: ${{ github.ref == 'refs/heads/develop' }}
-      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k ${{ secrets.DevTkn }} --skip-duplicate
+      # if: ${{ github.ref == 'refs/heads/develop' }}
+      run: | 
+             GITHUB_TOKEN= ${{ secrets.DevTkn }} 
+             dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
