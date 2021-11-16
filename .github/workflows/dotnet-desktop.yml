@@ -25,7 +25,7 @@ jobs:
         dotnet-version: 3.1
         
     - name: Add github nuget registry
-      run: dotnet nuget add source --username fathi.chabane@gmail.com --password ${{ secrets.DevTkn }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/crown12/index.json"      
+      run: dotnet nuget add source --username fathi.chabane@gmail.com --password Info**1987 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/crown12/index.json"      
     - name: Restore dependencies
       run: dotnet restore
       
