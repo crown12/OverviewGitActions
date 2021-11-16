@@ -28,7 +28,7 @@ jobs:
         dotnet-version: 3.1
     
     #- name: Add github nuget registry
-     # run: dotnet nuget add source --username ${{ secrets.ACS_PACKAGES_USERNAME }} --password ${{ secrets.ACS_PACKAGES_PASSWORD }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/AptivConnectedServices/index.json" 
+     # run: dotnet nuget add source --username ${{ secrets.DevTkn }} --password ${{ secrets.DevTkn }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/AptivConnectedServices/index.json" 
    
     - name: Restore dependencies
       run: dotnet restore --locked-mode
@@ -45,4 +45,4 @@ jobs:
  
     - name: Publish the package to GPR
       if: ${{ github.ref == 'refs/heads/develop' }}
-      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/AptivConnectedServices/index.json" -k ${{ secrets.DevTkn }} --skip-duplicate
+      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k ${{ secrets.DevTkn }} --skip-duplicate
