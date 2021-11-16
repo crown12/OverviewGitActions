@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageVersion>0.0.4</PackageVersion>
+    <PackageVersion>0.0.5</PackageVersion>
     <RepositoryUrl>https://github.com/crown12/OverviewGitActions.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType> 
     <Description>Just a test projects</Description>
