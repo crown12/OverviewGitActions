@@ -1,81 +1,37 @@
-
-name: FthCI
+name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+    - main
+    - develop
+    - release/**
   pull_request:
-    branches:  
-    - main 
-    - feature/**
+    branches:
+    - main
+    - develop        
+    - feature/**    
 
 jobs:
-  build:  
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on   
-
-    env:      
-      Solution_PATH: EmptyProject.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      #Test_Project_Path: FrequentLib.Tests                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-
+  build:
+    name: Build & Test & Publish NuGet
+    runs-on: 'ubuntu-latest'
+    env:
+      config: 'Release'
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
 
-    # Install the .NET Core workload
-    - name: Setup .Net
+    - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1
+    
   
-  #  - name: Add github nuget registry
-   #   run: dotnet nuget add source --username fathi.chabane@gmail.com --password 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  --name github-fth "https://nuget.pkg.github.com/crown12/index.json"
+    - name: Create the package
+      if: ${{ github.ref == 'refs/heads/develop' }}
+      run: dotnet pack --configuration ${{ env.config }} --no-build --no-restore
  
-
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-   # - name: Setup MSBuild.exe
-  #    uses: microsoft/setup-msbuild@v1.0.2
-    - name: Build with dotnet
-      run: dotnet build ${{ env.solution_PATH }} --configuration Debug
-      working-directory: .\EmptyProject
-      
-    - name: Restore dependencies
-      run: dotnet restore ${{ env.solution_PATH }}
-      working-directory: .\EmptyProject
-
-    #Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test ${{ env.solution_PATH }} --verbosity normal --filter Tests
-      working-directory: .\EmptyProject
-      
-    # Create the app package by building and packaging the Windows Application Packaging project
-  publish:
-      needs: build
-      runs-on: ubuntu-latest
-      env: 
-        config: 'Release'
-        project_PATH: './EmptyProject'
-      permissions:
-        packages: write
-        contents: read
-      
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with: 
-          dotnet-version: 3.1
-      - name: Add github nuget registery
-        run: dotnet nuget add source --username fathi.chabane@gmail.com --password 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 --store-password-in-clear-text --name github-fth "https://nuget.pkg.github.com/crown12/index.json"
-      
-      - name: Create package
-        run: dotnet pack --configuration ${{env.config}} ${{env.project_PATH}}/EmptyProject.csproj
-        
+    - name: Publish the package to GPR
+      if: ${{ github.ref == 'refs/heads/develop' }}
+      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k ${{ secrets.DevTkn }} --skip-duplicate
