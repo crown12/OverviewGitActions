@@ -42,4 +42,4 @@ jobs:
  
     - name: Publish the package to GPR
       # if: ${{ github.ref == 'refs/heads/develop' }}
-      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k ${{ secrets.DevTkn }} --skip-duplicate
+      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k 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 --skip-duplicate
