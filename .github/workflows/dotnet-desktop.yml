@@ -45,4 +45,4 @@ jobs:
       # if: ${{ github.ref == 'refs/heads/develop' }}
       run: | 
              GITHUB_TOKEN= ${{ secrets.DevTkn }} 
-             dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k GITHUB_TOKEN --skip-duplicate
+             dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
