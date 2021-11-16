@@ -15,6 +15,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     env:
       config: 'Release'
+      GITHUB_TOKEN: ${{ secrets.DevTkn }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -42,4 +43,4 @@ jobs:
  
     - name: Publish the package to GPR
       # if: ${{ github.ref == 'refs/heads/develop' }}
-      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k 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 --skip-duplicate
+      run: dotnet nuget push "**/*.nupkg" --source "https://nuget.pkg.github.com/crown12/index.json" -k ${{env.GUTHUB_TOKEN}} --skip-duplicate
