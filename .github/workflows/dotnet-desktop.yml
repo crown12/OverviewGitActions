@@ -26,8 +26,9 @@ jobs:
         
     - name: Add github nuget registry
       run: dotnet nuget add source --username fathi.chabane@gmail.com --password Info**1987 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/crown12/index.json"      
+      
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore --no-restore
       
     - name: Build
       run: dotnet build --configuration ${{ env.config }} --no-restore
