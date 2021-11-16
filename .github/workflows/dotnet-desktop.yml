@@ -30,11 +30,11 @@ jobs:
     #- name: Add github nuget registry
      # run: dotnet nuget add source --username ${{ secrets.DevTkn }} --password ${{ secrets.DevTkn }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/AptivConnectedServices/index.json" 
    
-    #- name: Restore dependencies
-     # run: dotnet restore --locked-mode
+    # - name: Restore dependencies
+    # run: dotnet restore --locked-mode
 
     - name: Build
-      run: dotnet build --configuration ${{ env.config }} --no-restore
+      run: dotnet build --configuration ${{ env.config }} 
 
     - name: Test
       run: dotnet test --verbosity normal --filter UnitTests
